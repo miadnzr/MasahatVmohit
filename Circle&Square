@@ -1,0 +1,79 @@
+using System;
+
+class Program
+{
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine(" Enter The Shape You Want to Calculate:");
+        Console.WriteLine("1. Circle");
+        Console.WriteLine("2. Square");
+
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        switch (choice)
+        {
+            case 1:
+                Console.Write("Enter The Radius of the Circle: ");
+                double r = Convert.ToDouble(Console.ReadLine());
+                Circle circle = new Circle(r);
+                Console.WriteLine("Area : " + circle.GetArea());
+                Console.WriteLine("Perimeter : " + circle.GetPerimeter());
+                break;
+
+            case 2:
+                Console.Write("Enter the side length of the square: ");
+                double s = Convert.ToDouble(Console.ReadLine());
+                Square square = new Square(s);
+                Console.WriteLine("Area : " + square.GetArea());
+                Console.WriteLine("Perimeter : " + square.GetPerimeter());
+                break;
+
+            default:
+                Console.WriteLine("Invalid choice!");
+                break;
+
+        }
+    }
+
+}
+
+class Circle
+    {
+        private double radius;
+        private const double pi = 3.14;
+
+        public Circle(double r)
+        {
+            radius = r;
+        }
+
+        public double GetArea()
+        {
+            return pi * radius * radius;
+        }
+
+        public double GetPerimeter()
+        {
+            return 2 * pi * radius;
+        }
+    }
+    class Square
+    {
+        private double side;
+
+        public Square(double s)
+        {
+            side = s;
+        }
+
+        public double GetArea()
+        {
+            return side * side;
+        }
+
+        public double GetPerimeter()
+        {
+            return 4 * side;
+        }
+    }
